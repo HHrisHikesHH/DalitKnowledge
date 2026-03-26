@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Unseen History — What Every Bahujan Must Know</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #f4ead8;
+  --paper: #0f1217;
+  --paper2: #171b22;
+  --surface-strong: #0b0f14;
+  --saffron: #ff9b3d;
+  --gold: #f1c96a;
+  --blue: #7fb8ff;
+  --red: #ff7f7f;
+  --green: #6bd39a;
+  --muted: #c4b79f;
+  --border: #303844;
+  --highlight: #222a35;
+  --evidence-bg: #1c1416;
+  --evidence-reform-bg: #142018;
+  --evidence-note-bg: #131b23;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+html[data-theme="light"] {
+  --ink: #1a1008;
+  --paper: #f5f0e8;
+  --paper2: #ede7d6;
+  --surface-strong: #1a1008;
+  --saffron: #d4590a;
+  --gold: #b8860b;
+  --blue: #1a3a5c;
+  --red: #8b1a1a;
+  --green: #1a4a2a;
+  --muted: #5a4a38;
+  --border: #c8b89a;
+  --highlight: #fff3cd;
+  --evidence-bg: #faf5f5;
+  --evidence-reform-bg: #f5faf6;
+  --evidence-note-bg: #f5f8fa;
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.8;
+  font-size: 17px;
+  color-scheme: dark;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* HEADER */
+.masthead {
+  background: var(--surface-strong);
+  color: var(--paper);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(255,255,255,0.015) 40px,
+    rgba(255,255,255,0.015) 80px
+  );
+}
+.masthead-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 1.5rem;
+}
+.masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.masthead h1 em {
+  font-style: italic;
+  color: var(--saffron);
+}
+.masthead-sub {
+  font-size: 1.1rem;
+  color: rgba(245,240,232,0.7);
+  max-width: 620px;
+  margin: 0 auto 2rem;
+  font-style: italic;
+}
+.masthead-dedication {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(245,240,232,0.45);
+  letter-spacing: 0.15em;
+}
+
+/* NAV */
+.toc {
+  background: var(--surface-strong);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.toc-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.toc-inner::-webkit-scrollbar { display: none; }
+.toc-inner a {
+  color: rgba(245,240,232,0.6);
+  text-decoration: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.85rem 1rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  display: block;
+}
+.toc-inner a:hover {
+  color: var(--saffron);
+  border-bottom-color: var(--saffron);
+}
+.toc-inner a.active {
+  color: var(--saffron);
+  border-bottom-color: var(--saffron);
+}
+
+.theme-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  border: 1px solid var(--border);
+  background: var(--paper2);
+  color: var(--ink);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  transition: transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+}
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--saffron);
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* LAYOUT */
+.container {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.wide-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* SECTIONS */
+section {
+  padding: 4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+section:last-child { border-bottom: none; }
+
+.section-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+h2 .sub {
+  display: block;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted);
+  margin-top: 0.25rem;
+}
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: var(--ink);
+}
+p { margin-bottom: 1.2rem; }
+p:last-child { margin-bottom: 0; }
+
+/* INTRO BOX */
+.intro-box {
+  background: var(--surface-strong);
+  color: var(--paper);
+  padding: 2.5rem;
+  border-radius: 4px;
+  margin-bottom: 3rem;
+}
+.intro-box p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: rgba(245,240,232,0.9);
+  margin-bottom: 0.8rem;
+}
+.intro-box p:last-child { margin-bottom: 0; }
+.intro-box strong { color: var(--saffron); }
+
+/* PULLQUOTE */
+.pullquote {
+  border-left: 4px solid var(--saffron);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  background: var(--paper2);
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--ink);
+}
+.pullquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-style: normal;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+/* EVIDENCE CARD */
+.evidence {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--red);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--evidence-bg);
+}
+.evidence-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.5rem;
+}
+.evidence h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--ink);
+}
+.evidence p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.evidence .source-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background: var(--red);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* GREEN EVIDENCE (positive/reform) */
+.evidence.reform {
+  border-left-color: var(--green);
+  background: var(--evidence-reform-bg);
+}
+.evidence.reform .evidence-label { color: var(--green); }
+.evidence.reform .source-tag { background: var(--green); }
+
+/* BLUE NOTE */
+.evidence.note {
+  border-left-color: var(--blue);
+  background: var(--evidence-note-bg);
+}
+.evidence.note .evidence-label { color: var(--blue); }
+.evidence.note .source-tag { background: var(--blue); }
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -1.85rem;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--saffron);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 2px var(--saffron);
+}
+.tl-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--saffron);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+.tl-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.tl-item p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+/* PERSON CARD */
+.person-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.person-card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  background: var(--paper);
+  position: relative;
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+.person-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--saffron);
+}
+.person-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border-color: rgba(255, 155, 61, 0.45);
+}
+.person-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.person-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.person-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.person-quote {
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+/* LAW TABLE */
+.law-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.law-table th {
+  background: var(--surface-strong);
+  color: var(--paper);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.law-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.law-table tr:nth-child(even) td { background: var(--paper2); }
+.law-table tr:hover td { background: var(--highlight); }
+.law-table .verse {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--red);
+  white-space: nowrap;
+}
+.law-table .severity {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.sev-death { background: #b93131; color: #fff; }
+.sev-torture { background: #c44e40; color: #fff; }
+.sev-exile { background: #c7782e; color: #fff; }
+.sev-deny { background: #566270; color: #fff; }
+
+/* BIG STAT */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.stat-box {
+  background: var(--surface-strong);
+  color: var(--paper);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--saffron);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.6);
+}
+
+/* CHAPTER DIVIDER */
+.chapter-divider {
+  text-align: center;
+  padding: 2rem 0 1rem;
+  color: var(--border);
+  font-size: 1.5rem;
+  letter-spacing: 0.5em;
+}
+
+/* FOOTNOTE */
+.footnote {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+/* WHAT TO DO */
+.action-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.action-card {
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+  background: var(--paper2);
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+.action-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+  border-color: rgba(255, 155, 61, 0.42);
+}
+.action-card .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--saffron);
+  opacity: 0.5;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.action-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.action-card p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* CLOSING */
+.closing {
+  background: var(--surface-strong);
+  color: var(--paper);
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.closing h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--paper);
+  margin-bottom: 1.5rem;
+}
+.closing p {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  color: rgba(245,240,232,0.75);
+  font-size: 1.05rem;
+}
+
+/* HIGHLIGHT TEXT */
+strong { color: var(--ink); }
+em { color: var(--saffron); font-style: italic; }
+
+/* SCROLL ANIMATION */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeUp 0.6s ease forwards; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 560ms ease, transform 560ms ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal,
+  .person-card,
+  .action-card,
+  .stat-box,
+  .theme-toggle {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .toc-inner a { font-size: 9px; padding: 0.75rem 0.6rem; }
+  .theme-toggle { padding: 0.45rem 0.7rem; right: 0.8rem; bottom: 0.8rem; }
+  section { padding: 2.5rem 0; }
+  .law-table { font-size: 0.8rem; }
+  .law-table th, .law-table td { padding: 0.5rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <p class="masthead-eyebrow">A People's History of India — For Those Who Were Never Told</p>
+  <h1>The Unseen History<br><em>What Every Bahujan Must Know</em></h1>
+  <p class="masthead-sub">The truth about caste, power, scripture, and the people who fought back — told plainly, without apology.</p>
+  <p class="masthead-dedication">In the tradition of Phule · Periyar · Ambedkar · Tukaram · Kabir · Buddha</p>
+</header>
+
+<!-- NAV -->
+<nav class="toc" aria-label="Table of Contents">
+  <div class="toc-inner">
+    <a href="#start">Where to Begin</a>
+    <a href="#before">Before the Vedas</a>
+    <a href="#system">How the System Was Built</a>
+    <a href="#laws">The Laws of Oppression</a>
+    <a href="#women">What Was Done to Women</a>
+    <a href="#dalit">Untouchability</a>
+    <a href="#texts">The Sacred Texts</a>
+    <a href="#buddha">Why Buddhism Was Born</a>
+    <a href="#erased">How Buddhism Was Erased</a>
+    <a href="#fighters">The Ones Who Fought Back</a>
+    <a href="#ambedkar">Ambedkar's Choice</a>
+    <a href="#today">What You Can Do</a>
+  </div>
+</nav>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme">Light Mode</button>
+
+<!-- SECTION 0: START -->
+<section id="start">
+<div class="container">
+  <span class="section-number">Before You Read</span>
+  <h2>A Note to the Reader</h2>
+
+  <div class="intro-box">
+    <p>This document is for <strong>anyone who has been told to stay in their place</strong> — by birth, by gender, by religion, or by tradition.</p>
+    <p>It is for the Dalit woman who was told her suffering is her karma from a past life. It is for the Shudra farmer who was told god created him to serve. It is for the wife who was told her husband is her god. It is for the young person who feels something is wrong but cannot name it.</p>
+    <p>We assume you know nothing about ancient history. We will explain everything from the beginning. We will show you <strong>evidence</strong> — not opinion, not rumor. We will show you the actual texts, the actual laws, and the actual people who questioned them.</p>
+    <p>This is not an attack on any person or community. It is an examination of <strong>a system of power</strong> — who built it, how it was maintained, and how ordinary people across 2,500 years refused to accept it.</p>
+    <p><strong>The goal is simple:</strong> When you finish reading, you will be able to think for yourself.</p>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-number">3,500</div>
+      <div class="stat-label">Years of documented caste oppression</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">160M+</div>
+      <div class="stat-label">Dalits in India today still facing discrimination</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">1956</div>
+      <div class="stat-label">Year Ambedkar publicly left Hinduism with 600,000 followers</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">0</div>
+      <div class="stat-label">Times caste is mentioned in IVC archaeology</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 1: BEFORE -->
+<section id="before">
+<div class="container">
+  <span class="section-number">Chapter 01</span>
+  <h2>Before the Vedas<span class="sub">India did not always have caste</span></h2>
+
+  <p>To understand what was done to you, you first need to understand what was there before.</p>
+
+  <p>From approximately <strong>3300 BCE to 1300 BCE</strong> — that is, more than 4,000 years ago — one of the greatest civilizations in human history existed in northwestern India and present-day Pakistan. We call it the <strong>Indus Valley Civilization (IVC)</strong>, also known as the Harappan Civilization.</p>
+
+  <h3>What the IVC looked like</h3>
+
+  <p>The IVC cities of Mohenjo-daro and Harappa were marvels. They had <strong>planned streets in a grid pattern</strong>, which no other civilization of that time had. They had an advanced <strong>sewage and drainage system</strong> — London would not have a comparable system until the 1850s. They had standardized weights and measures for fair trade. Their houses had private bathrooms.</p>
+
+  <p>Most importantly: <strong>archaeologists have found no evidence of a rigid social hierarchy in IVC.</strong> There are no massive royal palaces towering over the poor. There are no mass graves of sacrificed slaves. The houses, while varying in size, do not show the extreme inequality we see in civilizations built on enforced hierarchy.</p>
+
+  <div class="evidence note">
+    <div class="evidence-label">Archaeological Record</div>
+    <h4>What IVC religion looked like — before caste</h4>
+    <p>The famous "Pashupati Seal" shows a meditating figure surrounded by animals — possibly an early form of what becomes Shiva, but in a non-Brahmanical, non-hierarchical context. Mother goddess figurines are abundant. There is a Great Bath — suggesting ritual purification. But there are <strong>no fire altars of the Vedic type</strong>. There is no evidence of the animal sacrifice system that Vedic religion would later build its power on.</p>
+    <span class="source-tag">Source: Archaeological Survey of India; Shereen Ratnagar, "Understanding Harappa"</span>
+  </div>
+
+  <h3>Then what happened?</h3>
+
+  <p>Around 1500–1200 BCE, groups of people speaking an early form of Sanskrit arrived in northwestern India from Central Asia and the Pontic Steppe (the grasslands between the Black Sea and the Caspian Sea). Modern <strong>genetic and linguistic science</strong> has confirmed this. They were called Aryans — meaning "noble" in their own language.</p>
+
+  <p>They brought with them: a language (Sanskrit), a set of hymns (what would become the Rig Veda), a ritual system centered on fire sacrifice (yajna), a priestly class (Brahmins), and the early seeds of what would become the caste system.</p>
+
+  <div class="pullquote">
+    "The caste system was not always here. India did not emerge from creation with four castes carved into it. It was built — deliberately, over centuries — by a small priestly class to secure permanent power for themselves."
+    <cite>— Analysis based on the work of historians Romila Thapar, D.D. Kosambi, and B.R. Ambedkar</cite>
+  </div>
+
+  <p>This is the first and most important thing to understand: <strong>Caste was not inevitable. It was invented.</strong> And what is invented by human beings can be dismantled by human beings.</p>
+</div>
+</section>
+
+<!-- SECTION 2: SYSTEM -->
+<section id="system">
+<div class="container">
+  <span class="section-number">Chapter 02</span>
+  <h2>How the System Was Built<span class="sub">The architecture of permanent inequality</span></h2>
+
+  <p>Imagine you want to create a system where your family and your friends' families will be at the top of society forever — not just this generation, but for thousands of years. What would you need?</p>
+
+  <p>You would need: <strong>(1) A story that makes the hierarchy seem natural or divine. (2) Laws that enforce it with violence. (3) Control of education so only you know the rules. (4) A spiritual mechanism that makes the oppressed accept their oppression.</strong></p>
+
+  <p>This is exactly what was built. Let us examine each piece.</p>
+
+  <h3>Piece 1: The Divine Story — Purusha Sukta</h3>
+
+  <p>In the Rig Veda, one of the oldest texts in the world, there is a hymn called the <strong>Purusha Sukta</strong> (Rig Veda 10.90). It describes a cosmic being (Purusha) whose body is sacrificed to create the world — and society.</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Primary Text — Rig Veda 10.90, verses 11–12</div>
+    <h4>The Caste Origin Verse</h4>
+    <p><em>Original Sanskrit (transliterated):</em> "Brahmanosya mukham asit, bahu rajanyah kritah, uru tadasya yad vaishyah, padbhyam shudro ajayata."</p>
+    <p><em>Translation:</em> "The Brahmin was his mouth. The Kshatriya was made from his arms. His thighs became the Vaishya. From his feet, the Shudra was born."</p>
+    <p><strong>What this means in plain language:</strong> Your position in society is not the result of your choices, your intelligence, or your work. It is determined before you are born — by which part of God's body you supposedly came from. The Brahmin (priest) came from the holy mouth. The Shudra (laborer) came from the dirty feet. This is presented as cosmic, eternal, divine law.</p>
+    <p><strong>The hidden politics:</strong> Who wrote this? The Brahmin priests wrote it. They placed themselves at the top — the "mouth of god." They declared this divine arrangement. They were not reporting a fact; they were <em>manufacturing</em> justification for their own dominance, and attributing it to god so it could not be questioned.</p>
+    <span class="source-tag">Source: Rig Veda 10.90.11-12 — accessible at sacred-texts.com/hin/rigveda</span>
+  </div>
+
+  <h3>Piece 2: Control of Knowledge</h3>
+
+  <p>The second pillar of the system was <strong>absolute monopoly on knowledge</strong>. The Vedas were kept in Sanskrit — a language that only Brahmin boys were taught. The rules of the system were written in Sanskrit. The laws were in Sanskrit. The arguments for why the system was fair were in Sanskrit. And the people most harmed by the system — Shudras, Dalits, women — were <strong>explicitly forbidden</strong> from learning Sanskrit.</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Gautama Dharmashastra — Ancient Law Text</div>
+    <h4>Punishment for a Shudra hearing the Vedas</h4>
+    <p>The Gautama Dharmashastra (one of the ancient law codes) specifies: if a Shudra intentionally overheard Vedic recitation, <strong>molten tin was to be poured into his ears</strong>. If he repeated Vedic verses from memory, <strong>his tongue was to be cut out</strong>.</p>
+    <p><strong>The long-term vision behind this:</strong> If you cannot read, you cannot know your rights. If you cannot know your rights, you cannot claim them. If the only people who know the law are the people who benefit from it, the law will never change. This is not incidental — it is the architecture of permanent power.</p>
+    <span class="source-tag">Source: Gautama Dharmashastra; confirmed in Ambedkar's "Annihilation of Caste"</span>
+  </div>
+
+  <h3>Piece 3: The Karma Trap</h3>
+
+  <p>Perhaps the most brilliant and most cruel invention was the <strong>karma doctrine</strong> as it was applied to caste. Here is how it worked:</p>
+
+  <p>You are a Dalit. You have no land. You cannot read. You are forced to handle dead bodies, clean sewage, remove animal carcasses — the most degrading tasks. Your children will do the same. You suffer every day.</p>
+
+  <p>The Brahmanical answer to your suffering: <em>"This is your karma from a past life. You did something terrible in your previous birth. God is giving you this life as punishment. If you accept your suffering without complaint, serve those above you faithfully, you will be born into a higher caste next time."</em></p>
+
+  <div class="pullquote">
+    "The karma doctrine, as applied to caste, is the most sophisticated oppression mechanism in human history. It removes the oppressor from all moral accountability. It places the burden of the crime on the victim. And it does so in the name of god."
+    <cite>— Based on Ambedkar's analysis in "The Annihilation of Caste" (1936)</cite>
+  </div>
+
+  <p>Notice what this does: <strong>It makes the victim responsible for their own oppression.</strong> The Brahmin landlord who exploits you is not a criminal — he is simply enjoying his good karma from past virtue. You, who are exploited, deserve it — because of your past-life sin. The system is presented as not only fair, but <em>divinely just</em>.</p>
+
+  <p>Jyotirao Phule (1827–1890), the great reformer from Maharashtra, was one of the first to name this mechanism clearly. He called it a system of religious fraud.</p>
+
+  <h3>Piece 4: Control of Every Life Event</h3>
+
+  <p>Once the Brahmin controlled the story, the knowledge, and the spiritual interpretation — they also controlled every moment of a person's life.</p>
+
+  <ul style="margin: 1rem 0 1rem 2rem; color: var(--muted); font-size: 0.95rem; line-height: 2;">
+    <li><strong>Birth:</strong> The naming ceremony (namakarana) required a Brahmin — for a fee.</li>
+    <li><strong>Growing up:</strong> The thread ceremony (upanayana) was denied to Shudras entirely.</li>
+    <li><strong>Marriage:</strong> Auspicious dates required a Brahmin to calculate — for a fee.</li>
+    <li><strong>Farming:</strong> When to sow, when to harvest — required Brahmin astrological approval — for a fee.</li>
+    <li><strong>Death:</strong> Funeral rites required a Brahmin to perform — or the soul would not reach heaven — for a fee.</li>
+    <li><strong>After death:</strong> The Shradh (ancestor rites) required a Brahmin — annually — for a fee.</li>
+  </ul>
+
+  <p>The Brahmin was the <strong>mandatory middleman</strong> at every critical moment of life. There was no way around him. And he was always paid. This was not incidental — it was a business model wearing the costume of religion.</p>
+</div>
+</section>
+
+<!-- SECTION 3: LAWS -->
+<section id="laws">
+<div class="container">
+  <span class="section-number">Chapter 03</span>
+  <h2>The Laws of Oppression<span class="sub">What Manusmriti actually says — in plain language</span></h2>
+
+  <p>The <strong>Manusmriti</strong> is the most important legal text of Brahmanical society. It was composed between approximately 200 BCE and 200 CE. Every rule in it was applied as law — it was not mythology or philosophy. People were punished under it.</p>
+
+  <p>It was also the text that British colonial administrator Warren Hastings had selected in 1772 as "the Hindu law code" — making it the official basis for administering law to Hindus under the British Empire. This gave it even more authority than it historically had.</p>
+
+  <p>Here is what it actually says. We are not summarizing or exaggerating. These are direct translations with verse references.</p>
+
+  <table class="law-table">
+    <thead>
+      <tr>
+        <th>Verse</th>
+        <th>What it says</th>
+        <th>Who it targets</th>
+        <th>Penalty type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="verse">2.31</td>
+        <td>A Brahmin who has studied the Vedas is superior to a king. Kings must defer to Brahmins.</td>
+        <td>Everyone (Brahmin superiority)</td>
+        <td><span class="severity sev-deny">Structural</span></td>
+      </tr>
+      <tr>
+        <td class="verse">4.61</td>
+        <td>Do not give advice to a Shudra, do not give him leftover food, do not give him fire from a sacrifice, and do not teach him moral law.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-deny">Total exclusion</span></td>
+      </tr>
+      <tr>
+        <td class="verse">5.130</td>
+        <td>A Shudra is impure by birth.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-deny">Birth-based dehumanization</span></td>
+      </tr>
+      <tr>
+        <td class="verse">8.270</td>
+        <td>If a Shudra sits on the same seat as a twice-born man, the king shall exile him after branding his hip.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-exile">Branding + exile</span></td>
+      </tr>
+      <tr>
+        <td class="verse">8.279–280</td>
+        <td>If a Shudra mentions the name or caste of a twice-born man with contempt, a hot iron nail ten fingers long shall be thrust into his mouth.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-torture">Torture</span></td>
+      </tr>
+      <tr>
+        <td class="verse">8.281</td>
+        <td>If a Shudra presumes to teach a Brahmin, the king shall pour hot oil into his mouth and ears.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-torture">Torture</span></td>
+      </tr>
+      <tr>
+        <td class="verse">8.374–376</td>
+        <td>A Brahmin may take the goods of a Shudra with full impunity, for a Shudra has no property that his master may not take.</td>
+        <td>Shudras</td>
+        <td><span class="severity sev-deny">No property rights</span></td>
+      </tr>
+      <tr>
+        <td class="verse">10.51–56</td>
+        <td>Chandalas (Untouchables) must live outside the village. They must use broken pots to eat from. They must wear clothes taken from corpses. They must wear iron ornaments. They must walk at night only. They are walking pollution.</td>
+        <td>Dalits / Untouchables</td>
+        <td><span class="severity sev-death">Total dehumanization</span></td>
+      </tr>
+      <tr>
+        <td class="verse">9.3</td>
+        <td>Her father guards her in childhood, her husband guards her in youth, and her sons guard her in old age — a woman is never fit for independence.</td>
+        <td>All women</td>
+        <td><span class="severity sev-deny">Permanent guardianship</span></td>
+      </tr>
+      <tr>
+        <td class="verse">8.371</td>
+        <td>Women have no right to study the Vedas. They are equal to Shudras in spiritual eligibility.</td>
+        <td>All women</td>
+        <td><span class="severity sev-deny">Spiritual exclusion</span></td>
+      </tr>
+      <tr>
+        <td class="verse">2.213–214</td>
+        <td>Women are by nature seductive and can lead even a learned man astray. The wise are never unguarded in her company.</td>
+        <td>All women</td>
+        <td><span class="severity sev-deny">Declared inherently immoral</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="evidence note">
+    <div class="evidence-label">Important Clarification</div>
+    <h4>Is Manusmriti still in use today?</h4>
+    <p>After independence, Ambedkar ensured the Indian Constitution guaranteed equality regardless of caste, religion, or gender. Manusmriti is not legally applicable in modern India. However, its cultural and social effects persist — in honor killings, in inter-caste marriage violence, in the daily humiliations still faced by Dalit communities. The law changed. The mindset is still being dismantled.</p>
+    <p>The Manusmriti was burned publicly on December 25, 1927, by Ambedkar and his followers at the Mahad Satyagraha — one of the most powerful symbolic acts in Indian history.</p>
+    <span class="source-tag">Source: Manusmriti (G. Bühler translation, Sacred Books of the East, Vol. 25)</span>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 4: WOMEN -->
+<section id="women">
+<div class="container">
+  <span class="section-number">Chapter 04</span>
+  <h2>What Was Done to Women<span class="sub">The other half of the oppression</span></h2>
+
+  <p>The caste system and the patriarchal system were not separate. They were <strong>two faces of the same coin</strong>. A Brahmin woman suffered less than a Dalit woman, but both suffered — in different ways, at different hands. Here is what the texts actually prescribed for women, and what was done in their name.</p>
+
+  <h3>The Core Doctrine: Women Cannot Be Independent</h3>
+
+  <div class="evidence">
+    <div class="evidence-label">Manusmriti 5.147–149 — The Foundation</div>
+    <h4>Permanent Guardianship</h4>
+    <p>The text states clearly: A woman must never be independent. In childhood she is under her father. In youth, under her husband. In old age, under her son. She must <em>never</em> be granted independence. Her husband, even if he is morally degraded, even if he lacks good qualities, even if he has no virtues — must be served as a god by a virtuous woman.</p>
+    <p><strong>What this means in practice:</strong> No property. No legal standing. No right to refuse marriage. No right to remarry after a husband's death. No right to leave a violent marriage. All of this was divinely sanctioned.</p>
+    <span class="source-tag">Source: Manusmriti 5.147–149 — Bühler translation</span>
+  </div>
+
+  <h3>The Rig Veda's Declaration About Women's Intelligence</h3>
+
+  <div class="evidence">
+    <div class="evidence-label">Rig Veda 8.33.17 — Original, Pre-Buddhist text</div>
+    <h4>Indra declares women intellectually inferior</h4>
+    <p>The god Indra — King of the Gods — is quoted in the Rig Veda as saying: "The mind of woman cannot be disciplined; she has very little intelligence."</p>
+    <p><strong>Who is speaking?</strong> Not a human critic. Not a misguided philosopher. The <em>king of the gods</em> — the most powerful divine being in the Vedic universe — is quoted as making this declaration. This is presented as divine testimony, not human opinion.</p>
+    <p><strong>The political purpose:</strong> If god himself says women are not intelligent, then denying women education is not oppression — it is simply following the divine order of things. The declaration manufactures justification for a system that benefits from women's exclusion from knowledge.</p>
+    <span class="source-tag">Source: Rig Veda 8.33.17 — sacred-texts.com/hin/rigveda</span>
+  </div>
+
+  <h3>Sita — The Model Woman and What It Demanded</h3>
+
+  <p>The Ramayana is perhaps the most widely known story in India. It presents Sita as the ideal woman. Let us look at what that ideal actually required of real women.</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Valmiki Ramayana — Bala Kanda & Uttara Kanda</div>
+    <h4>What happened to Sita</h4>
+    <p>Sita was abducted — she was a victim of kidnapping. After Rama rescues her, she is made to <strong>walk through fire (Agni Pariksha)</strong> to prove she was not "used" by Ravana. She passes this test. The fire itself declares her pure. Rama accepts her back.</p>
+    <p>Then — after they return to Ayodhya, after she is his queen, after she has passed the divine fire test — Rama hears a washerman questioning Sita's purity. Rama does not defend his wife. He does not cite the fire test. He <strong>abandons a pregnant Sita in the forest</strong> because of a washerman's gossip.</p>
+    <p><strong>The message to real women:</strong> Even if you pass god's own test. Even if you are completely innocent. Even if a divine fire declared you pure. <em>One man's doubt about your body is enough to destroy your life.</em> A woman's honor is never her own — it is always held by men's perception of her.</p>
+    <span class="source-tag">Source: Valmiki Ramayana, Uttara Kanda, Ch. 40-48; critical edition, Baroda Oriental Institute</span>
+  </div>
+
+  <h3>Draupadi — What the "Righteous" Heroes Did</h3>
+
+  <div class="evidence">
+    <div class="evidence-label">Mahabharata — Sabha Parva, Chapters 67–72</div>
+    <h4>A wife gambled away by her "Dharmaraj" husband</h4>
+    <p>Yudhishthira — called <em>Dharmaraj</em> (King of Righteousness) — loses everything in a dice game. When he has nothing left, he wagers his wife Draupadi. He loses her too. She is then summoned to the court and <strong>dragged by her hair in front of the assembly</strong>. An attempt is made to disrobe her publicly.</p>
+    <p>In the hall were: Bhishma (the grandsire, the most respected elder), Drona (the master teacher), Kripa (the royal priest), and dozens of other warriors and kings. <strong>All of them sat in silence.</strong></p>
+    <p><strong>Draupadi's question — which nobody answered:</strong> "Was I wagered after my lord had lost himself, or before? If he had already lost himself, did he have any right to wager me at all?"</p>
+    <p>It is one of the most powerful legal arguments in all ancient literature. And it was asked by a woman. And no one in the hall could answer it. <strong>Not one of the great "righteous" men stood up.</strong></p>
+    <p>The same Yudhishthira is celebrated throughout the epic as the embodiment of dharma. This is the dharma.</p>
+    <span class="source-tag">Source: Mahabharata, Sabha Parva, Chapters 67–72 — Ganguli translation, sacred-texts.com</span>
+  </div>
+
+  <h3>The Devadasi System — Religious Prostitution</h3>
+
+  <p>The <strong>Devadasi system</strong> was the institutionalization of sexual exploitation with full religious sanction. Here is how it worked:</p>
+
+  <p>Young girls — predominantly from Dalit and lower-caste communities — were "married" to the temple deity between the ages of 8 and 14. Once married to the god, they could never marry a human man. They were then made sexually available to Brahmin priests and upper-caste patrons as an act of religious devotion.</p>
+
+  <p>The girl was told she was blessed. Her family was told she was serving god. The priests and patrons who used her were told they were receiving divine merit. The children she bore had no legal father, no caste protection, no social standing.</p>
+
+  <p>This was not fringe practice. It operated across South India — in Andhra Pradesh, Karnataka, Tamil Nadu, and Maharashtra — for centuries, with <strong>full Brahmanical scriptural backing</strong>. The British colonial government formally prohibited it in 1934. The practice continued in many areas for decades after.</p>
+
+  <div class="pullquote">
+    "The devadasi was not a prostitute who happened to be at a temple. She was a person whose entire identity — her body, her labor, her children — was systematically owned by a religious and social institution that refused to even acknowledge the ownership."
+    <cite>— Based on Gail Omvedt's research in "Buddhism in India: Challenging Brahmanism and Caste"</cite>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 5: DALIT -->
+<section id="dalit">
+<div class="container">
+  <span class="section-number">Chapter 05</span>
+  <h2>The Making of Untouchability<span class="sub">How a people were made into walking pollution</span></h2>
+
+  <p>The concept of "untouchability" is one of the most extreme forms of social exclusion ever systematically practiced in human history. To understand it, we must ask: <strong>Where did it come from? Was it always there?</strong></p>
+
+  <p>Ambedkar's answer — backed by his historical research — is devastating: <strong>Untouchability was not ancient. It was created as a punishment.</strong></p>
+
+  <h3>Ambedkar's Theory: Untouchability and Buddhism</h3>
+
+  <p>Ambedkar argued in his book "The Untouchables" (1948) that the people who became Untouchables were <strong>originally Buddhist</strong>. When the Brahmanical revival pushed Buddhism out of India between 400–800 CE, most people returned to the caste fold. But some refused. They held on to Buddhist practices — including the Buddhist prohibition on killing animals.</p>
+
+  <p>Because they refused to kill cows (following Buddhist ahimsa), they only handled cattle that had died naturally. The upper-caste communities then made this into a stigma — calling them "polluted" for touching dead animals. <strong>The very act of following a compassionate Buddhist principle was weaponized against them.</strong></p>
+
+  <div class="evidence">
+    <div class="evidence-label">Ambedkar, "The Untouchables" (1948)</div>
+    <h4>The broken men hypothesis</h4>
+    <p>Ambedkar identified that Untouchables typically lived in settlements just outside the village — not inside. He traced this pattern to Buddhist monastery placements, which were also traditionally outside villages. He found that Untouchable communities' traditional occupations (handling dead cattle, working with leather, cleaning sewage) all correspond to occupations that arose specifically from the refusal to kill animals. His conclusion: The people called Untouchables were the remnant Buddhist population who refused to re-enter the caste system after the Brahmanical revival — and were punished for it by being made into "walking pollution."</p>
+    <span class="source-tag">Source: B.R. Ambedkar, "The Untouchables: Who Were They and Why They Became Untouchables?" (1948)</span>
+  </div>
+
+  <h3>What Untouchability Meant in Daily Life</h3>
+
+  <p>This was not an abstract legal category. It shaped every moment of every day. From Manusmriti 10.51–56 and confirmed by Chinese traveller Xuanzang (7th century CE) who personally witnessed it:</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Historical Record — Multiple Sources</div>
+    <h4>The daily reality of untouchability</h4>
+    <p>Untouchable communities were required to: Live in settlements outside the village. Use only broken pots. Wear clothes taken from the dead. Wear iron ornaments (not gold or silver). Be prohibited from wearing shoes in the presence of upper-caste persons. In some regions: ring a bell or clap while walking so upper castes could avoid their shadow falling on them. Their shadow falling on food or a person required ritual purification. They could not use public wells. They could not enter temples. They could not eat in the same space as upper castes.</p>
+    <p>This was not the practice of isolated extremists. It was <strong>prescribed in the sacred law texts and enforced by the community</strong> across centuries and regions. Xuanzang, the Chinese Buddhist monk who traveled India in 629–645 CE, documented Untouchable communities being made to announce their presence as they moved through towns.</p>
+    <span class="source-tag">Sources: Manusmriti 10.51-56; Xuanzang's "Great Tang Records on the Western Regions" (7th c. CE); Al-Biruni's "Kitab ul Hind" (1030 CE)</span>
+  </div>
+
+  <h3>The Three Independent Witnesses</h3>
+
+  <p>Those who claim caste oppression is exaggerated or foreign-imposed must explain three independent non-Brahmanical witnesses from different centuries:</p>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">~500 BCE</div>
+      <h4>The Pali Buddhist Canon</h4>
+      <p>Written in Pali (not Sanskrit, not Brahmin-controlled), the Buddhist texts extensively document and critique the Brahmin caste system as a social reality. This is an independent tradition that had no motive to fabricate caste oppression.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">629–645 CE</div>
+      <h4>Xuanzang — Chinese Buddhist Monk</h4>
+      <p>Foreign observer with no stake in Indian politics. His detailed travel accounts document untouchability as a lived reality he personally witnessed across multiple regions of India.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1030 CE</div>
+      <h4>Al-Biruni — Arab Scholar</h4>
+      <p>The greatest scholar of the medieval Islamic world. In his "Kitab ul Hind," he provides precise sociological documentation of the caste system — centuries before any British colonial intervention. He describes the social separation with the detachment of an anthropologist.</p>
+    </div>
+  </div>
+
+  <p style="margin-top:1.5rem;">Three independent sources. Three different languages. Three different centuries. Three different cultural perspectives. All describing the same system. <strong>This is not propaganda — it is documented history.</strong></p>
+</div>
+</section>
+
+<!-- SECTION 6: TEXTS -->
+<section id="texts">
+<div class="container">
+  <span class="section-number">Chapter 06</span>
+  <h2>The Sacred Texts — What They Actually Say<span class="sub">Original and manipulated — and why it matters</span></h2>
+
+  <p>When you question the caste system using scriptural evidence, defenders often say: <em>"Those bad parts were added later by enemies. The real Vedas are pure."</em></p>
+
+  <p>Here is the honest, evidence-based answer to that claim.</p>
+
+  <h3>What is provably original and already problematic</h3>
+
+  <p>The <strong>Charvakas</strong> were India's own ancient atheist-materialist tradition. Around 600 BCE — before any Muslim, Christian, or foreign rule — they wrote a critique of Vedic rituals. Their critique is preserved in the <em>Sarva Darsana Samgraha</em>. They called the authors of the Ashvamedha (a Vedic ritual with explicit sexual components) "buffoons and demons." They were mocking their own tradition's texts.</p>
+
+  <p>This single fact is the most powerful evidence: <strong>Indian people were critiquing these texts from inside India, in ancient India, before any foreign ruler arrived.</strong> The problems in the original texts are not foreign insertions — they were noticed and criticized by Indians themselves 2,600 years ago.</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Textual Authenticity — What Scholars Confirm</div>
+    <h4>Original vs. Later Added Content</h4>
+    <p><strong>Confirmed original (pre-Buddhist, pre-foreign rule):</strong><br>
+    — Rig Veda caste verse (Purusha Sukta 10.90) — critiqued in Buddhist texts by 500 BCE<br>
+    — Yajur Veda Ch.23 — Ashvamedha ritual, so explicit that British translator Griffith refused to translate verses 17-31 into English in 1899<br>
+    — Shatapatha Brahmana (~800 BCE) — Brahma-daughter incest myth, Ashvamedha in detail<br>
+    — Manusmriti caste punishments — confirmed by independent commentary chains from the 9th and 12th centuries CE<br>
+    — Brihadaranyaka Upanishad 6.4 — forced sex instructions within marriage</p>
+    <p><strong>Likely later additions / manipulated:</strong><br>
+    — Bhavishya Purana — contains obvious forgeries: references to Jesus in India, Prophet Muhammad as a demon, Queen Victoria, trains, telegraphs. This was inserted in the colonial era and is widely cited by both Hindu nationalists and critics without knowing its fraudulent sections.<br>
+    — Brahma Vaivarta Purana — scholars date this to ~10th–12th century CE, not ancient<br>
+    — Some Shaiva/Vaishnava cross-god humiliation stories — inserted by competing sects between 600–1200 CE</p>
+    <span class="source-tag">Sources: Wendy Doniger, "The Hindus: An Alternative History"; Ludo Rocher, "The Puranas"; Physical manuscript evidence — Skanda Purana Nepal manuscript dated 810 CE</span>
+  </div>
+
+  <h3>The Most Important Conclusion</h3>
+
+  <p>The interpolation argument — that all the bad parts were added by enemies — is a deflection. <strong>Here is why it does not work:</strong></p>
+
+  <p>Even if you removed every single later addition. Even if you cleaned the Puranas of every medieval insertion. You would still be left with: the Rig Veda's caste verse, Manusmriti's torture laws, the Brihadaranyaka's forced sex passage, the Ashvamedha, and the karma-justification of social oppression. All of these predate Muslim rule, Christian rule, and British rule by centuries or millennia.</p>
+
+  <p>The oppression is not in the corruptions. <strong>The oppression is in the originals.</strong></p>
+</div>
+</section>
+
+<!-- SECTION 7: BUDDHA -->
+<section id="buddha">
+<div class="container">
+  <span class="section-number">Chapter 07</span>
+  <h2>Why Buddhism Was Born<span class="sub">The greatest anti-caste revolution in history</span></h2>
+
+  <p>To understand why Buddhism arose, you need to understand the world it arose in.</p>
+
+  <p>It was approximately 500 BCE. The Vedic Brahmanical system had expanded from northwestern India into the Gangetic Plains. Elaborate fire sacrifices (yajnas) required enormous wealth — thousands of cattle killed, enormous resources burned, all paid for by kings and received by Brahmin priests. The caste system was hardening. Women were being pushed further from public life. The Shudras were told their function was to serve. And anyone who questioned this was told they were questioning god's own design.</p>
+
+  <h3>Where Buddha came from — and what his father followed</h3>
+
+  <p>Siddhartha Gautama was born in Kapilavastu — in the foothills of the Himalayas, in what is today southern Nepal. His father was <strong>Suddhodana</strong>, the leader (raja) of the Shakya clan.</p>
+
+  <p>The Shakya clan lived in the <strong>Greater Magadha</strong> cultural region — an area that modern historians confirm was largely <em>outside the reach of Vedic Brahminism</em> at that time. The Shakyas followed their own tribal-republican customs. They had their own council (gana sangha). They practiced their own forms of nature worship and ancestral customs — not the Brahmin-mediated Vedic rituals. Suddhodana was not a Vedic Hindu. After his son became the Buddha and returned to teach him, Suddhodana heard the teachings and <strong>converted to Buddhism</strong>, becoming, according to Buddhist tradition, an arahant (one who has achieved liberation) before his death.</p>
+
+  <h3>What Buddha directly challenged</h3>
+
+  <div class="evidence reform">
+    <div class="evidence-label">Buddha's Direct Teachings — Pali Canon</div>
+    <h4>The core anti-caste declarations</h4>
+    <p>The Buddha directly attacked the logic of birth-based hierarchy in multiple suttas. In the <em>Vasala Sutta</em> (Sutta Nipata 1.7), he declared: A person does not become a brahmin by birth. A person does not become an outcast by birth. It is one's actions that make one a brahmin. It is one's actions that make one an outcast.</p>
+    <p>In the <em>Assalayana Sutta</em> (Majjhima Nikaya 93), when a young brahmin argued for caste superiority, the Buddha dismantled the argument point by point, asking: Do brahmins not come from the womb of women just as other people do? Do they not bleed if cut? Where exactly is this superiority that birth is supposed to confer?</p>
+    <p>His sangha (community) was open to all castes — including people who would have been considered untouchable under Brahmanical law. Sunita, a scavenger who cleaned streets, became a respected monk. Upali, a barber — the lowest of the low — became one of the most respected disciples.</p>
+    <span class="source-tag">Sources: Pali Canon — accessible at suttacentral.net (free, fully translated)</span>
+  </div>
+
+  <h3>What Buddhism offered that Brahminism denied</h3>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-number" style="font-size:1.8rem;">No</div>
+      <div class="stat-label">Mandatory priest for any ritual</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number" style="font-size:1.8rem;">Free</div>
+      <div class="stat-label">Teaching open to all castes and women</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number" style="font-size:1.8rem;">Direct</div>
+      <div class="stat-label">Liberation through your own effort, not priests</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number" style="font-size:1.8rem;">Equal</div>
+      <div class="stat-label">No birth-based hierarchy in the sangha</div>
+    </div>
+  </div>
+
+  <h3>The most important thing Buddhism did</h3>
+
+  <p>Buddhism did something that had never been done in India before at scale: it <strong>established institutions of knowledge that were not controlled by Brahmins</strong>. The Buddhist monasteries were schools. The Pali language — in which the Buddha's teachings were recorded — was <em>not Sanskrit</em>. It was the language of ordinary people. Anyone could learn it. Anyone could read the texts. Anyone could become a monk or a nun and enter the educated class.</p>
+
+  <p>This is why Nalanda — the great Buddhist university — housed an estimated 9 million manuscripts and 10,000 students at its peak. It was the largest institution of learning in the ancient world. And it was not restricted by birth.</p>
+
+  <p><strong>The existence of Nalanda was itself a political act against the Brahmanical monopoly on knowledge.</strong></p>
+</div>
+</section>
+
+<!-- SECTION 8: ERASED -->
+<section id="erased">
+<div class="container">
+  <span class="section-number">Chapter 08</span>
+  <h2>How Buddhism Was Erased<span class="sub">The counter-revolution — and what it cost India</span></h2>
+
+  <p>For nearly a thousand years, Buddhism was the dominant moral and intellectual tradition of the Indian subcontinent. The greatest empire India ever produced — the Mauryan Empire under Emperor Ashoka (268–232 BCE) — was Buddhist. Ashoka's rock edicts, carved in stone across the continent, promoted compassion, equality, and non-violence. They are the most tamper-proof evidence of this period — no one can claim they were "inserted later."</p>
+
+  <p>Then Buddhism declined in India — almost completely disappearing from the land of its birth by 1200 CE. How? This is one of the most important questions in Indian history, and one of the least honestly answered.</p>
+
+  <h3>The Brahmanical Counter-Revolution — Step by Step</h3>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">~200 BCE – 300 CE</div>
+      <h4>The Bhakti strategy — absorbing the opposition</h4>
+      <p>Brahmanical thinkers began incorporating elements of popular devotional religion (bhakti) that Buddhism had pioneered — accessible worship, emotional devotion, compassionate god-figures. This made Brahminism more appealing to common people who had been drawn to Buddhism's accessibility.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">~300–600 CE</div>
+      <h4>Buddha becomes Vishnu's avatar — the ultimate absorption</h4>
+      <p>In the Bhagavata Purana and other texts, the Buddha is declared to be the 9th avatar of Vishnu. This seems like an honor. It is actually a hostile takeover. In these texts, Buddha is described as a deceiver — sent by Vishnu specifically to mislead the demons with false teachings. Buddhism is reframed as a divine trap, and its followers as people who fell for it. This is Brahmanical counter-propaganda at its most sophisticated.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">~600–1000 CE</div>
+      <h4>Adi Shankaracharya's philosophical counter-attack</h4>
+      <p>Shankaracharya (788–820 CE) was a brilliant philosopher who traveled across India debating and defeating Buddhist scholars in public forums. Where Buddhism had provided philosophical frameworks that threatened Brahmanical authority, he built a counter-philosophy (Advaita Vedanta) that was intellectually formidable. With royal Brahmin patronage behind him and Buddhist institutions losing state support, this was devastating.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1193 CE</div>
+      <h4>Nalanda destroyed</h4>
+      <p>Bakhtiyar Khilji's army burned Nalanda. This is real and cannot be minimized — it was a catastrophic act of destruction. But its context matters: Nalanda's decline had already begun because Brahmanical kings had withdrawn patronage and funding. The fire finished what decades of institutional starvation had started. The manuscripts burned because there was no longer an institution strong enough to protect them.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1200–1400 CE</div>
+      <h4>The punishment of those who refused to return</h4>
+      <p>As Buddhism disappeared, communities that had converted returned to the caste fold — but were placed back, often in lower positions. The communities that <em>refused</em> to return — that held on to Buddhist egalitarian principles — were made into Untouchables. Ambedkar's research suggests this is the origin of untouchability as a social category. The people at the very bottom of the caste system are there because they were the ones who refused to accept the system.</p>
+    </div>
+  </div>
+
+  <div class="pullquote">
+    "Untouchability is the symptom on the body of Hinduism of the disease called Buddhism."
+    <cite>— B.R. Ambedkar, "The Untouchables: Who Were They?" (1948)</cite>
+  </div>
+
+  <h3>What India lost</h3>
+
+  <p>When Buddhism was suppressed in India, India lost: its largest network of free educational institutions. Its most complete tradition of rational inquiry and logic. Its most powerful articulation of human equality. And the communities that most depended on these institutions — the Shudras, the women, the oppressed castes — lost their primary alternative to the Brahmanical system.</p>
+
+  <p>It took until 1956 for those communities to have a leader powerful enough to publicly name this and choose the path of return.</p>
+</div>
+</section>
+
+<!-- SECTION 9: FIGHTERS -->
+<section id="fighters">
+<div class="container">
+  <span class="section-number">Chapter 09</span>
+  <h2>The Ones Who Fought Back<span class="sub">2,500 years of resistance — your real heritage</span></h2>
+
+  <p>This history is not only a history of oppression. It is also — always, in every century — a history of resistance. Here are the people who refused. They are your real intellectual ancestors.</p>
+
+  <div class="person-grid">
+    <div class="person-card">
+      <div class="person-name">Gautama Buddha</div>
+      <span class="person-tag">563–483 BCE · Shakya Clan · Kapilavastu</span>
+      <p>Rejected caste, rejected Brahmin mediation, rejected animal sacrifice. Built the world's first open educational institution network. Taught that liberation is available to every human being regardless of birth.</p>
+      <p class="person-quote">"By birth one is not a brahmin nor an outcast. It is by deeds that one becomes a brahmin, and by deeds one becomes an outcast."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Charvakas</div>
+      <span class="person-tag">~600 BCE · India's Ancient Atheists</span>
+      <p>India's own rationalist-materialist tradition. Rejected the Vedas, rejected divine authority, rejected the karma doctrine. Called the Ashvamedha ritual authors "buffoons and demons" — in writing, in Sanskrit, in ancient India. Proof that Indian people questioned this from the very beginning.</p>
+      <p class="person-quote">"Heaven is merely a lie. The Vedas are the idle prattle of knaves."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Kabir</div>
+      <span class="person-tag">1440–1518 CE · Weaver · Varanasi</span>
+      <p>Born into a family of weavers (Muslim by faith, possibly Dalit-origin by community). Attacked both Hindu caste hierarchy and Islamic orthodoxy with equal courage. His poetry is still sung. Never learned Sanskrit. Wrote in the language of working people.</p>
+      <p class="person-quote">"If god is found by bathing in water, the frog living in the water must have found god first. If god is found in the forest, deer would be gods. If god is found in stone idols, I shall worship the grinding stone."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Tukaram</div>
+      <span class="person-tag">1608–1650 CE · Shudra Trader · Dehu, Maharashtra</span>
+      <p>A Shudra from Maharashtra who wrote abhangas (devotional poetry) that attacked Brahmin hypocrisy directly. Brahmin authorities demanded he destroy his writings. He refused. His abhangas survive and are sung across Maharashtra today.</p>
+      <p class="person-quote">"The knowledge of the Vedas is the birthright of all. Why do you guard it like a private property?"</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Jyotirao Phule</div>
+      <span class="person-tag">1827–1890 CE · Mali Caste · Pune, Maharashtra</span>
+      <p>The father of the modern Indian anti-caste movement. In 1848, opened the first school for girls and Dalits in India — in his own house. His wife Savitribai became India's first female teacher. Named the Brahmanical system as deliberate fraud. Called for mass education as liberation. Ambedkar called him his guru.</p>
+      <p class="person-quote">"Education is the milk of a lioness — whoever drinks it becomes a lion."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Savitribai Phule</div>
+      <span class="person-tag">1831–1897 CE · India's First Female Teacher</span>
+      <p>Wife and intellectual partner of Jyotirao. When she walked to school to teach Dalit and low-caste children, upper-caste people threw stones and dung at her. She carried an extra sari in her bag and changed when she arrived. She kept walking. She never stopped. She is the mother of Indian public education.</p>
+      <p class="person-quote">"Go, get education. Be self-reliant, be industrious. Work, gather wisdom and riches, all gets lost without knowledge."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Periyar E.V. Ramasamy</div>
+      <span class="person-tag">1879–1973 CE · Self-Respect Movement · Tamil Nadu</span>
+      <p>The most radical anti-Brahmin thinker in South Indian history. Founded the Self-Respect Movement in 1925. Declared that god, religion, and the Congress party were all tools of Brahmin domination. Burned images of Rama and Manu publicly. Promoted widow remarriage, inter-caste marriage, and women's education as political acts.</p>
+      <p class="person-quote">"There is no god. There is no god. There is no god at all. He who invented god is a fool. He who propagates god is a scoundrel. He who worships god is a barbarian."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Savitribai & Fatima Sheikh</div>
+      <span class="person-tag">1848 CE · Partners in Education · Pune</span>
+      <p>Fatima Sheikh — India's first Muslim female teacher — opened her home and joined Savitribai Phule to teach the first school for Dalit and oppressed-caste girls in 1848. A Hindu Shudra woman and a Muslim woman, together, defying the entire social order. This story was erased from Indian school textbooks for over a century.</p>
+      <p class="person-quote">Their action was their statement: every child, regardless of caste or religion or gender, deserves to learn.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- SECTION 10: AMBEDKAR -->
+<section id="ambedkar">
+<div class="container">
+  <span class="section-number">Chapter 10</span>
+  <h2>Ambedkar's Choice<span class="sub">Why the greatest Indian jurist left Hinduism — and chose the Buddha</span></h2>
+
+  <p>Bhimrao Ramji Ambedkar was born on April 14, 1891, in Mhow, Central India, into the Mahar community — a Dalit community of Maharashtra. He would go on to earn degrees from Bombay University, Columbia University (New York), the London School of Economics, and Gray's Inn (London). He held more advanced degrees than almost any Indian of his generation.</p>
+
+  <p>And throughout all of this, he was treated as untouchable.</p>
+
+  <h3>What he experienced — personally</h3>
+
+  <p>As a child, he was made to sit on a gunny sack in school — separate from other children — because the teacher would not allow him on the benches. The class peon (who cleaned the school) refused to touch his water pot to fill it — so if no upper-caste student happened to help, he went without water all day.</p>
+
+  <p>As a young official working for the Baroda state, he could not find a place to stay in the city. No hotel would take him because of his caste. He disguised himself as a Parsi (a religious minority not subject to untouchability) and stayed in a Parsi inn — until he was discovered and physically thrown out.</p>
+
+  <p>As a law student in London, he was the most academically accomplished Indian there. When he returned to India, he could not find a house to rent in Bombay in a "good" area. Landlords who had accepted his application by post withdrew the moment they learned his surname.</p>
+
+  <p><strong>His entire life was the proof of his argument.</strong> The man with the most degrees in the room was told he was ritually impure by birth. The man who wrote India's Constitution was told his shadow was polluting.</p>
+
+  <div class="pullquote">
+    "I was born a Hindu. I had no choice in that. But I will not die a Hindu. Because to be a Hindu is to consent to a system that treats human beings as less than human."
+    <cite>— B.R. Ambedkar, 1935 (after declaring his intention to leave Hinduism)</cite>
+  </div>
+
+  <h3>Why he chose Buddhism — specifically</h3>
+
+  <p>After announcing in 1935 that he would leave Hinduism, Ambedkar spent 21 years studying all major religious traditions. He examined Islam, Christianity, Sikhism. He chose Buddhism. Here is why — in his own reasoning:</p>
+
+  <div class="evidence reform">
+    <div class="evidence-label">Ambedkar's Reasoning — "The Buddha and His Dhamma" (1956)</div>
+    <h4>Why Buddhism and not another religion</h4>
+    <p><strong>On Islam:</strong> It offered equality within the community but maintained a sharp inside/outside division. The conversion to Islam had not liberated Dalit converts from caste prejudice in Muslim communities, either. It was also a foreign tradition with no roots in Indian soil or struggle.</p>
+    <p><strong>On Christianity:</strong> Same problem — converts faced continued caste discrimination within Christian communities. And it was the religion of the colonial power that had oppressed India in a different way.</p>
+    <p><strong>On Sikhism:</strong> Closer — Sikhism's founders explicitly rejected caste. But the tradition had narrowed significantly, and Dalit Sikhs were still facing discrimination in Sikh institutions.</p>
+    <p><strong>On Buddhism:</strong> It was born in India. Its founder was Indian. It had already been the tradition of the oppressed classes for centuries. It rejected caste at its philosophical root — not as a social reform, but as a logical consequence of its core teaching that human beings have no inherent, fixed, birth-determined nature. It required no mediating priest. It could be practiced by anyone. And critically: the Dalits who converted would be <em>returning to a tradition that Brahmanical power had taken from their ancestors</em> — not adopting something foreign.</p>
+    <span class="source-tag">Source: B.R. Ambedkar, "The Buddha and His Dhamma" (1956); "Why I am not a Hindu" speeches (1935–1956)</span>
+  </div>
+
+  <h3>October 14, 1956 — The Conversion</h3>
+
+  <p>On October 14, 1956, in Nagpur, Maharashtra, Ambedkar publicly converted to Buddhism. He was accompanied by approximately <strong>600,000 followers</strong> — the largest mass religious conversion in modern history, accomplished entirely peacefully, by a free choice of free people.</p>
+
+  <p>He recited the 22 vows he had composed — a direct repudiation of Brahmanical religion, vow by vow. They included: "I shall not believe that Brahma, Vishnu and Mahesh are gods." "I shall not perform Shraddha nor shall I give Pind-dan." "I shall not perform any rituals under the guidance of Brahmin priests." "I renounce Hinduism which is harmful for humanity."</p>
+
+  <p>He died six weeks later, on December 6, 1956. He had spent those six weeks completing "The Buddha and His Dhamma" — his life's final work.</p>
+
+  <h3>What he gave India</h3>
+
+  <p>Beyond his conversion, Ambedkar gave India its most important legal document: the <strong>Indian Constitution</strong>. As the Chairman of the Drafting Committee, he inserted Article 17 — which abolished untouchability and made its practice a criminal offence. He inserted affirmative action provisions. He inserted equality before law regardless of religion, race, caste, sex, or place of birth.</p>
+
+  <p>The man who had been denied water as a child because of his caste <strong>wrote the law that declared his oppression illegal.</strong></p>
+</div>
+</section>
+
+<!-- SECTION 11: TODAY -->
+<section id="today">
+<div class="container">
+  <span class="section-number">Chapter 11</span>
+  <h2>What You Can Do<span class="sub">The tradition of rational thinking is yours to continue</span></h2>
+
+  <p>You have now read what was done, who did it, why it was done, and who fought back. This final section is about what this knowledge is for — and what comes next.</p>
+
+  <div class="pullquote">
+    "Educate. Agitate. Organize."
+    <cite>— B.R. Ambedkar's three-word manifesto for liberation</cite>
+  </div>
+
+  <div class="action-grid">
+    <div class="action-card">
+      <div class="num">01</div>
+      <h4>Read the primary sources yourself</h4>
+      <p>Don't take anyone's word for what the texts say — ours included. The Pali Canon is free at suttacentral.net. Ambedkar's complete works are free at ambedkar.org. The Manusmriti translation is at sacred-texts.com. Read them yourself.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">02</div>
+      <h4>Separate spirituality from the system</h4>
+      <p>You can have your own relationship with the divine, with ethics, with the sacred — without accepting a system that tells you your birth determines your worth. These are not the same thing, and the conflation of the two was deliberate and manufactured.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">03</div>
+      <h4>Teach your children the real history</h4>
+      <p>Phule, Periyar, Ambedkar, Savitribai, Kabir, Tukaram — these are the people who fought for your dignity. Make sure the children in your life know their names and their stories.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">04</div>
+      <h4>Practice inter-caste humanity</h4>
+      <p>The system perpetuates itself when we enforce it in small, daily acts — in who we eat with, who we marry, how we speak about other communities. Every act of genuine human equality is a political act against the system.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">05</div>
+      <h4>Ask who benefits</h4>
+      <p>When any religious or social rule is presented to you as eternal, divine, or natural — ask: who benefits from this rule? Who profits when I obey it? Who wrote it? These three questions will cut through most manufactured justifications.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">06</div>
+      <h4>Use your legal rights</h4>
+      <p>Untouchability is a crime under Article 17 of the Indian Constitution. The Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act 1989 provides specific legal protection. Know your rights. Report violations. Organize with others.</p>
+    </div>
+  </div>
+
+  <h3>The Books That Will Change How You See Everything</h3>
+
+  <table class="law-table">
+    <thead>
+      <tr><th>Book</th><th>Author</th><th>Why Read It</th><th>Where to Find It</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Annihilation of Caste</strong></td>
+        <td>B.R. Ambedkar (1936)</td>
+        <td>The foundational text. The speech no one allowed him to give. Dismantles the entire system from first principles.</td>
+        <td>Free: ambedkar.org</td>
+      </tr>
+      <tr>
+        <td><strong>Riddles in Hinduism</strong></td>
+        <td>B.R. Ambedkar (1956)</td>
+        <td>Direct textual critique using original Sanskrit sources. Every claim is cited.</td>
+        <td>Free: ambedkar.org</td>
+      </tr>
+      <tr>
+        <td><strong>Gulamgiri (Slavery)</strong></td>
+        <td>Jyotirao Phule (1873)</td>
+        <td>First book to compare Indian caste oppression to American slavery. Written by a Shudra, for the oppressed.</td>
+        <td>Free: archive.org</td>
+      </tr>
+      <tr>
+        <td><strong>Why I Am Not a Hindu</strong></td>
+        <td>Kancha Ilaiah (1996)</td>
+        <td>A living Dalit intellectual describing caste from inside experience AND intellectual analysis.</td>
+        <td>Widely available in bookshops</td>
+      </tr>
+      <tr>
+        <td><strong>The Hindus: An Alternative History</strong></td>
+        <td>Wendy Doniger (2009)</td>
+        <td>Harvard professor's full scholarly analysis of the texts, including the suppressed material. <em>Banned in India in 2014.</em></td>
+        <td>Available internationally; PDF accessible online</td>
+      </tr>
+      <tr>
+        <td><strong>Buddhism in India</strong></td>
+        <td>Gail Omvedt (2003)</td>
+        <td>How Buddhism was India's great liberatory tradition, and how it was suppressed.</td>
+        <td>Sage Publications; university libraries</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<!-- CLOSING -->
+<footer class="closing">
+  <div class="container">
+    <h2>The Examined Life Is Not Optional</h2>
+    <p>What you have read here is not the complete picture. It is the beginning of one. Every claim here has a source you can verify. Every source is accessible. The work of understanding is now yours.</p>
+    <p>The tradition you have just joined — Phule, Periyar, Ambedkar, Tukaram, Kabir, Buddha — was never comfortable. These people lost friends, homes, social standing. Some lost their lives. They did it because they believed a single thing: <strong>that a human being who knows the truth is harder to enslave than one who does not.</strong></p>
+    <p>This document is a beginning. A fuller, more researched book will follow. But start here. Ask questions. Follow the sources. Think for yourself.</p>
+    <p style="margin-top:2rem; color:rgba(245,240,232,0.4); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.15em;">
+      JAI BHIM · JAI PHULE · JAI PERIYAR<br>
+      EDUCATE · AGITATE · ORGANIZE
+    </p>
+  </div>
+</footer>
+
+<script>
+// Theme toggle with persistence
+const htmlEl = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const THEME_KEY = 'truth-theme';
+
+function applyTheme(theme) {
+  htmlEl.setAttribute('data-theme', theme);
+  document.body.style.colorScheme = theme === 'light' ? 'light' : 'dark';
+  if (themeToggle) {
+    themeToggle.textContent = theme === 'light' ? 'Dark Mode' : 'Light Mode';
+    themeToggle.setAttribute('aria-label', `Switch to ${theme === 'light' ? 'dark' : 'light'} mode`);
+  }
+}
+
+const initialTheme = localStorage.getItem(THEME_KEY) || 'dark';
+applyTheme(initialTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = htmlEl.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    localStorage.setItem(THEME_KEY, nextTheme);
+    applyTheme(nextTheme);
+  });
+}
+
+// Smooth scroll with sticky nav offset
+const navHeight = () => {
+  const nav = document.querySelector('.toc');
+  return nav ? nav.getBoundingClientRect().height : 56;
+};
+
+const navLinks = Array.from(document.querySelectorAll('.toc-inner a[href^="#"]'));
+navLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - navHeight() - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+// Subtle reveal animations
+const revealTargets = document.querySelectorAll('section, .evidence, .pullquote, .person-card, .action-card, .stat-box, .timeline .tl-item');
+revealTargets.forEach((el, idx) => {
+  el.classList.add('reveal');
+  el.style.transitionDelay = `${Math.min((idx % 8) * 24, 140)}ms`;
+});
+
+const revealObserver = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-visible');
+    obs.unobserve(entry.target);
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+
+revealTargets.forEach(el => revealObserver.observe(el));
+
+// Active TOC link state while scrolling
+const sectionMap = navLinks
+  .map(link => {
+    const id = link.getAttribute('href');
+    return { link, section: id ? document.querySelector(id) : null };
+  })
+  .filter(item => item.section);
+
+const tocObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    sectionMap.forEach(item => item.link.classList.remove('active'));
+    const match = sectionMap.find(item => item.section === entry.target);
+    if (match) match.link.classList.add('active');
+  });
+}, { threshold: 0.35, rootMargin: `-${Math.round(navHeight())}px 0px -55% 0px` });
+
+sectionMap.forEach(item => tocObserver.observe(item.section));
+</script>
+</body>
+</html>
