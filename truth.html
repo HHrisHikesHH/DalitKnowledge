@@ -26,7 +26,10 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
 
 html[data-theme="dark"] {
   --ink: #f4ead8;
@@ -55,6 +58,7 @@ body {
   color-scheme: light;
   transition: background-color 300ms ease, color 300ms ease;
   padding-bottom: 5rem;
+  overflow-x: clip;
 }
 
 /* HEADER */
@@ -155,6 +159,7 @@ body {
 
 .theme-toggle {
   position: fixed;
+  left: auto;
   right: 0.85rem;
   bottom: 0.85rem;
   border: 1px solid var(--border);
@@ -170,6 +175,9 @@ body {
   transition: transform 220ms ease, background-color 220ms ease, border-color 220ms ease;
   z-index: 1000;
   box-shadow: 0 8px 24px rgba(0,0,0,0.28);
+  width: max-content;
+  max-width: calc(100vw - 1.7rem);
+  white-space: nowrap;
 }
 .theme-toggle:hover {
   transform: translateY(-1px);
