@@ -872,7 +872,50 @@ em { color: var(--saffron); font-style: italic; }
 @media (max-width: 640px) { body { font-size: 17px; } }
 @media (max-width: 900px) {
   .toc-pin-btn { display: none; }
-  .chapter-toc-sidebar { top: 0; max-height: 100vh; height: 100vh; }
+  .masthead { padding: 2.25rem 0.85rem 1.8rem; }
+  .masthead-eyebrow { font-size: 10px; letter-spacing: 0.22em; margin-bottom: 1rem; }
+  .masthead-sub { font-size: 0.95rem; margin-bottom: 1.2rem; }
+  .masthead-dedication { font-size: 10px; letter-spacing: 0.1em; }
+  .container, .wide-container { padding: 0 0.85rem; }
+  section { padding: 2.1rem 0; }
+  h2 { font-size: clamp(1.45rem, 6vw, 2rem); }
+  h3 { font-size: 1.15rem; }
+  p { margin-bottom: 1rem; }
+  .toc { padding: 0 0.35rem; }
+  .toc-inner { gap: 0.25rem; }
+  .toc-inner a { font-size: 9px; padding: 0.68rem 0.5rem; }
+  .nav-actions { gap: 6px; padding-right: 2px; }
+  .nav-btn { padding: 5px 8px; font-size: 10px; }
+  .law-table { font-size: 0.78rem; }
+  .law-table th { font-size: 9px; letter-spacing: 0.1em; }
+  .law-table td, .law-table th { padding: 0.6rem 0.62rem; }
+  .source-link { font-size: 0.78rem; padding: 6px 10px; }
+  .doc-image { margin: 20px 0; }
+  .doc-image img { max-height: 260px; }
+  .doc-image figcaption { padding: 9px 12px; font-size: 0.76rem; }
+  .person-card, .action-card, .evidence { padding: 1rem; }
+  .pullquote { margin: 1.4rem 0; padding: 1rem 0.85rem; font-size: 1rem; }
+  .theme-toggle {
+    bottom: 0.65rem;
+    left: 0.65rem;
+    font-size: 10px;
+    padding: 0.52rem 0.78rem;
+  }
+  .back-to-top {
+    bottom: 0.7rem;
+    right: 0.7rem;
+    width: 40px;
+    height: 40px;
+  }
+  .chapter-toc-sidebar,
+  .toc-peek-tab { display: none !important; }
+}
+@media (max-width: 480px) {
+  .toc-inner a:nth-child(n+7):nth-child(-n+12) { display: none; }
+  .nav-actions { margin-left: 0; }
+  .nav-btn { padding: 4px 7px; font-size: 9px; }
+  .theme-toggle { max-width: 56vw; }
+  body { line-height: 1.7; }
 }
 @media print {
   body { background: #fff !important; color: #000 !important; }
