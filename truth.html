@@ -869,6 +869,112 @@ em { color: var(--saffron); font-style: italic; }
   background: var(--paper2);
 }
 .chapter-extra summary { cursor: pointer; font-weight: 700; }
+.neural-app-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(124,58,237,0.15), rgba(16,185,129,0.1));
+  color: var(--color-text-primary, #e2e8f0);
+  border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 20px 0;
+  transition: all 0.2s ease;
+  letter-spacing: 0.02em;
+}
+.neural-app-btn:hover {
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(16,185,129,0.2));
+  border-color: rgba(124,58,237,0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124,58,237,0.2);
+}
+.research-map-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 18px 0;
+  position: relative;
+}
+.research-map-card:hover { border-color: rgba(124,58,237,0.4); }
+.research-map-card .chapter-ref {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 6px;
+}
+.research-map-card h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.topic-string-box {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #a5f3fc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.topic-string-box .topic-text { word-break: break-word; }
+.copy-btn {
+  background: rgba(124,58,237,0.2);
+  border: 1px solid rgba(124,58,237,0.4);
+  color: #c4b5fd;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+.copy-btn:hover { background: rgba(124,58,237,0.4); }
+.depth-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-right: 8px;
+}
+.depth-explorer { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.depth-practitioner { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+.depth-researcher { background: rgba(124,58,237,0.15); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
+.what-youll-find {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  font-style: italic;
+  margin-top: 8px;
+}
+.chapter-explore-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(124,58,237,0.07);
+  border: 1px solid rgba(124,58,237,0.15);
+  border-radius: 8px;
+  padding: 10px 18px;
+  margin-top: 32px;
+  font-size: 0.83rem;
+}
+.explore-label { color: #a78bfa; font-weight: 600; }
+.explore-link {
+  color: #7c3aed;
+  font-weight: 700;
+  text-decoration: none;
+}
+.explore-link:hover { text-decoration: underline; }
 @media (max-width: 640px) { body { font-size: 17px; } }
 @media (max-width: 900px) {
   .toc-pin-btn { display: none; }
@@ -947,6 +1053,8 @@ em { color: var(--saffron); font-style: italic; }
     <a href="#system" aria-label="Go to How the System Was Built chapter">How the System Was Built</a>
     <a href="#laws" aria-label="Go to The Laws of Oppression chapter">The Laws of Oppression</a>
     <a href="#women" aria-label="Go to What Was Done to Women chapter">What Was Done to Women</a>
+    <a href="#kilvenmani" aria-label="Go to Kilvenmani chapter">Kilvenmani</a>
+    <a href="#khairlanji" aria-label="Go to Khairlanji chapter">Khairlanji</a>
     <a href="#dalit" aria-label="Go to Untouchability chapter">Untouchability</a>
     <a href="#texts" aria-label="Go to The Sacred Texts chapter">The Sacred Texts</a>
     <a href="#buddha" aria-label="Go to Why Buddhism Was Born chapter">Why Buddhism Was Born</a>
@@ -954,6 +1062,7 @@ em { color: var(--saffron); font-style: italic; }
     <a href="#fighters" aria-label="Go to The Ones Who Fought Back chapter">The Ones Who Fought Back</a>
     <a href="#ambedkar" aria-label="Go to Ambedkar's Choice chapter">Ambedkar's Choice</a>
     <a href="#today" aria-label="Go to What You Can Do chapter">What You Can Do</a>
+    <a href="#research-maps" aria-label="Go to Research Maps chapter">Research Maps</a>
     <div class="nav-actions">
       <button class="nav-btn" id="searchBtn" type="button" title="Use Ctrl+F / ⌘F to search this page" aria-label="Search this page">Search</button>
       <button class="nav-btn" id="printBtn" type="button" aria-label="Save this document as PDF">Save as PDF</button>
@@ -1132,7 +1241,7 @@ em { color: var(--saffron); font-style: italic; }
 
   <p>The <strong>Manusmriti</strong> is the most important legal text of Brahmanical society. It was composed between approximately 200 BCE and 200 CE. Every rule in it was applied as law — it was not mythology or philosophy. People were punished under it.</p>
 
-  <p>It was also the text that British colonial administrator Warren Hastings commissioned in 1772 a compilation of Hindu legal texts in which Manusmriti was centrally featured — a process that elevated its authority beyond what it had historically held.</p>
+  <p>It was also the text that British colonial administrator Warren Hastings commissioned in 1772 a compilation of Hindu legal texts in which Manusmriti was centrally featured — a process that elevated its authority significantly.</p>
 
   <p>Here is what it actually says. We are not summarizing or exaggerating. These are direct translations with verse references.</p>
   <figure class="doc-image">
@@ -1320,7 +1429,7 @@ em { color: var(--saffron); font-style: italic; }
 
   <p>The girl was told she was blessed. Her family was told she was serving god. The priests and patrons who used her were told they were receiving divine merit. The children she bore had no legal father, no caste protection, no social standing.</p>
 
-  <p>This was not fringe practice. It operated across South India — in Andhra Pradesh, Karnataka, Tamil Nadu, and Maharashtra — for centuries, with <strong>full Brahmanical scriptural backing</strong>. Colonial governments began formally prohibiting it region by region — the Bombay Devadasi Protection Act was passed in 1934, followed by the Madras Devadasi (Prevention of Dedication) Act in 1947. The practice continued in many areas long after.</p>
+  <p>This was not fringe practice. It operated across South India — in Andhra Pradesh, Karnataka, Tamil Nadu, and Maharashtra — for centuries, with <strong>full Brahmanical scriptural backing</strong>. Colonial governments prohibited it region by region — the Bombay Devadasi Protection Act was 1934; the Madras Devadasi (Prevention of Dedication) Act, 1947. The practice continued in many areas long after.</p>
   <!-- No image here — dignity of subjects -->
   <div class="content-note">
     <strong>Note on images:</strong> We have chosen not to include images of Devadasi women out of respect for their dignity and the exploitation they suffered. Their stories deserve to be heard in their own words, not viewed.
@@ -1330,12 +1439,38 @@ em { color: var(--saffron); font-style: italic; }
     "The devadasi was not a prostitute who happened to be at a temple. She was a person whose entire identity — her body, her labor, her children — was systematically owned by a religious and social institution that refused to even acknowledge the ownership."
     <cite>— Based on Gail Omvedt's research in "Buddhism in India: Challenging Brahmanism and Caste"</cite>
   </div>
+
+  <h3>The Woman Who Asked the Question No One Would Answer</h3>
+  <p>In 1882, a woman named Tarabai Shinde picked up a pen and wrote the most furious, precise, and consequential feminist text produced by an Indian woman in the 19th century. She was not famous. She had no academic position. She was a woman from a Kunbi caste family in Buldhana district, Maharashtra, connected to Jyotirao Phule's Satyashodak Samaj movement.</p>
+  <p>She wrote because she was enraged.</p>
+  <p>A newspaper had reported the case of a widow who had been sentenced to death for killing her newborn child — the child of an unwanted pregnancy that had happened because, as a widow, she had no legal or social protection, no right to remarry, and no recourse when a man violated her. The widow was hanged. The man who made her pregnant was not named, not charged, not pursued.</p>
+  <p>Tarabai Shinde wrote "Stri Purush Tulana" — A Comparison Between Women and Men — in response to this case. She wanted to know: where is the man? Why is only the woman punished?</p>
+
+  <div class="evidence">
+    <div class="evidence-label">Primary Text — Stri Purush Tulana (1882)</div>
+    <h4>What Stri Purush Tulana argued — 1882</h4>
+    <p>Tarabai Shinde wrote in Marathi — not Sanskrit, not English. She wrote to be read by ordinary people. Her argument was direct and irrefutable:</p>
+    <p>She asked why the entire weight of sexual morality fell on women. She asked why widows were forbidden from remarrying while widowers remarried freely. She asked why a woman who had been violated by a man was treated as the criminal while the man faced no social or legal consequence. She asked why the sacred texts that Brahmin priests quoted to justify women's subordination were written exclusively by men, never by women.</p>
+    <p>She made her most cutting observation about the gods themselves: if the male gods in the Hindu tradition — Indra, Krishna, Brahma — were held to the same standards of sexual morality that women were held to, they would all be considered criminals by their own religion's law.</p>
+    <p>The text ran to approximately 40 pages in Marathi. It was controversial enough that it disappeared from public circulation almost immediately after publication. It was rediscovered nearly 80 years later, in the 1970s, by scholars studying social reform movements.</p>
+    <div class="source-links"><a class="source-link" href="https://archive.org/search?query=stri+purush+tulana+tarabai" target="_blank" rel="noopener">📖 Open Source: Stri Purush Tulana</a></div>
+  </div>
+
+  <h3>Why This Text Disappeared — and Why It Matters That It Did</h3>
+  <p>Two things happened to Stri Purush Tulana. First, it was suppressed — not by government censorship, but by social pressure: it was too uncomfortable, too direct, too angry to be acceptable in public discourse. Second, it was simply forgotten — not cited, not taught, not reprinted. When scholars in the 1970s found it in Maharashtra state archives, almost no one in Indian academic or public life had read it.</p>
+  <p>This is how patriarchal erasure works in practice: not always through burning books (though that happens too), but through the systematic failure to preserve, cite, teach, and celebrate the work of women who challenged the system. Tarabai Shinde was Phule's contemporary and intellectual ally. She wrote a more radical feminist text than anything written by her male contemporaries. She is known by a fraction of the people who know Phule, Periyar, or Ambedkar — all of whom were men.</p>
+  <p>The recovery of Stri Purush Tulana is itself part of the larger project: reconstructing a history that tells you the whole truth.</p>
+
+  <div class="pullquote">
+    "If the standards applied to Sita, to Draupadi, to every woman in this tradition — purity, silence, endurance, self-erasure — were applied equally to the gods who claim authority over them, those gods would stand convicted."
+    <cite>— Tarabai Shinde, "Stri Purush Tulana" (1882) — paraphrase of the central argument</cite>
+  </div>
 </div>
 </section>
 
 <section id="women-defied" class="chapter-extra">
 <div class="container">
-  <span class="section-number">Chapter 04B</span>
+  <span class="section-number">Chapter 04D</span>
   <h2>The Women Who Said No</h2>
   <p>For every text that said a woman must be silent, there was a woman who spoke. Here are those who are rarely taught in Indian schools.</p>
   <details>
@@ -1356,6 +1491,92 @@ em { color: var(--saffron); font-style: italic; }
 </div>
 </section>
 
+<section id="kilvenmani">
+<div class="container">
+  <span class="section-number">Chapter 04B</span>
+  <h2>When Asking for a Fair Wage Was a Death Sentence<span class="sub">The Kilvenmani Massacre — December 25, 1969</span></h2>
+  <p>On December 25, 1969 — Christmas Day — in Kilvenmani village, Thanjavur district, Tamil Nadu, 44 Dalit agricultural labourers were murdered. They were not soldiers in a war. They were not protestors marching on a capital. They were poor agricultural workers — predominantly women and children — who had gathered inside a hut after their village was surrounded by a mob. The mob locked the door. Then they set the hut on fire.</p>
+  <p>This was not spontaneous violence. It was organized, deliberate, and rooted in one demand: that Dalit workers be paid a living wage.</p>
+  <p>This chapter documents what happened, what caused it, what followed — and why almost nobody knows about it.</p>
+
+  <h3>The Demand That Preceded the Massacre</h3>
+  <p>The Thanjavur delta in Tamil Nadu was one of the most fertile agricultural regions in India — and one of the most rigidly feudal. The land was owned almost entirely by Vellalar Mudaliar and Brahmin landlord families. The labour was performed almost entirely by Dalit agricultural workers — primarily from the Paraiyar community.</p>
+  <p>In 1968–1969, Dalit agricultural workers, organized through the Communist Party of India (Marxist) affiliated Kisan Sabha, went on strike. Their demand: increase the daily wage from ₹1.00 to ₹1.25 per day — an increase of less than 12 US cents.</p>
+  <p>The landlords refused. They brought in workers from outside the region to break the strike. Tensions escalated across multiple villages through November and December 1969.</p>
+
+  <h3>December 25, 1969 — What Happened</h3>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-date">Night of December 25, 1969</div>
+      <p>A mob of approximately 200 men, allegedly organized and armed by local landlords and their associates, entered Kilvenmani village. The Dalit community retreated into a hut. The mob locked the hut from outside. They poured kerosene around the structure. They set it alight.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Casualties</div>
+      <p>44 people died inside that hut. Among the dead: 23 women, 16 children (the youngest were infants), and 5 men. The oldest victim was in her 60s. The youngest was an infant.</p>
+    </div>
+  </div>
+
+  <div class="evidence note">
+    <div class="evidence-label">Historical Record</div>
+    <h4>What the Court Records Show</h4>
+    <p>The case went to trial. In 1973, the Sessions Court convicted 25 people and sentenced them to death. The families of the dead believed justice had finally come.</p>
+    <p>Then the Madras High Court acquitted ALL 25 in 1981 — citing insufficient evidence. No one was ever punished for the Kilvenmani massacre.</p>
+    <p>The acquittal judgment stated that the witnesses — all poor Dalit agricultural labourers from the same community as the victims — were not "reliable" witnesses.</p>
+    <div class="source-links"><a class="source-link" href="https://www.pucl.org" target="_blank" rel="noopener">📖 Open Source: PUCL reports</a><a class="source-link" href="https://archive.org/search?query=gail+omvedt+dalits" target="_blank" rel="noopener">📖 Open Source: Omvedt archive reference</a><a class="source-link" href="https://archive.org/search?query=kancha+ilaiah" target="_blank" rel="noopener">📖 Open Source: Ilaiah reference</a></div>
+  </div>
+
+  <h3>Why This Massacre Is Not in Your Textbooks</h3>
+  <p>The 44 who died were poor, Dalit, rural, and Tamil. They had no political patrons, no urban connections, no English-language advocates. Their story required crossing every axis of marginalization simultaneously — caste, class, region, and language — to reach a national audience. It never did.</p>
+  <p>The people who organized and carried out the massacre were from dominant landed castes with significant political influence in Tamil Nadu. Several landlord families had direct or indirect connections to political parties. Naming them carried consequences.</p>
+  <p>December 25, 1969, was Christmas Day. The national press was on holiday. The story received minimal coverage in the days immediately following the massacre — and once a story misses its initial news cycle, it rarely returns to national consciousness.</p>
+  <p>As of the time of writing this document, there is no national memorial to the Kilvenmani victims. The massacre is not in the NCERT curriculum. It is not commemorated at a national level. The site exists; the memory has been erased.</p>
+
+  <div class="pullquote">
+    "The Kilvenmani massacre is not an aberration of Indian democracy. It is a mirror to it. The landlords wanted cheap labour. The labourers wanted a living wage. The state found the landlords' witnesses more credible than the survivors of a massacre."
+    <cite>— Analysis based on A.R. Venkatachalapathy, historian, and Gail Omvedt's documentation in "Dalits and the Democratic Revolution" (1994)</cite>
+  </div>
+</div>
+</section>
+
+<section id="khairlanji">
+<div class="container">
+  <span class="section-number">Chapter 04C</span>
+  <h2>A Family Was Destroyed. The Country Didn't Know for a Month.<span class="sub">The Khairlanji Massacre — September 29, 2006</span></h2>
+  <p>On September 29, 2006, in Khairlanji village, Bhandara district, Maharashtra — in the same state where Ambedkar was born, in the same state that burned the Manusmriti — a mob of upper-caste villagers attacked the Bhotmange family.</p>
+  <p>Surekha Bhotmange and her daughter Priyanka were dragged out of their home, paraded naked through the village, gang-raped, and murdered. Her two sons, Sudhir and Roshan were also killed. Her husband Bhaiyyalal survived only because he was away from home.</p>
+  <p>For 35 days, this did not appear in a single national newspaper.</p>
+  <h3>The Bhotmange Family — Who They Were</h3>
+  <p>The Bhotmanges were a Dalit family (Mahar community — the same community as Ambedkar) who had made themselves conspicuous for two reasons that upper-caste neighbors found intolerable.</p>
+  <p>They owned land. The family had legally acquired agricultural land — an act of economic assertion that was deeply resented in a village where Dalit land ownership was considered transgressive.</p>
+  <p>Surekha and her children had supported a local woman who had filed a case against upper-caste men for assault. They were witnesses. The attack on the Bhotmange family was not random violence — it was retribution for their refusal to withdraw.</p>
+  <div class="evidence note">
+    <div class="evidence-label">What happened — documented in court records</div>
+    <h4>What happened — documented in court records</h4>
+    <p>On the evening of September 29, 2006, a mob of approximately 40–50 upper-caste villagers from the Kunbi community surrounded the Bhotmange home. Surekha and Priyanka were dragged out. Both were sexually assaulted. Both were killed. Sudhir and Roshan were also killed. The bodies of Surekha and Priyanka were found in a canal.</p>
+    <p>The Supreme Court of India, in its final judgment (2010), noted the extreme brutality of the attack and said it "shocked the conscience of the court."</p>
+    <p>Eight people were convicted in 2008. Six were given death sentences; two received life imprisonment. In 2010, the Nagpur Bench of the Bombay High Court commuted all death sentences to life imprisonment.</p>
+    <p>No one was executed for the Khairlanji massacre.</p>
+    <div class="source-links"><a class="source-link" href="https://archive.org/search?query=teltumbde+khairlanji" target="_blank" rel="noopener">📖 Open Source: Teltumbde book</a><a class="source-link" href="https://www.hrw.org/report/2007/02/12/hidden-apartheid/caste-discrimination-against-indias-untouchables" target="_blank" rel="noopener">📖 Open Source: HRW Hidden Apartheid</a><a class="source-link" href="https://www.ncdhr.org.in" target="_blank" rel="noopener">📖 Open Source: NCDHR</a></div>
+  </div>
+  <h3>35 Days of Silence</h3>
+  <p>This section is one of the most important things to understand about the Khairlanji massacre — and about how media and social power operate in India.</p>
+  <p>The attack happened on September 29, 2006. It was not reported in any national English-language newspaper until late October 2006 — more than a month later. It was not reported on national television. It did not appear on the front pages.</p>
+  <p>What broke the silence was not journalism. It was street protest. Dalit communities in Maharashtra — particularly in Nagpur, Ambedkar's city — organized mass protests in November 2006. The protests became impossible to ignore. Only then did national media cover the story.</p>
+  <p>Journalist and scholar Anand Teltumbde, who documented the case in his book "The Persistence of Caste" (2010), directly asked why a gang rape and quadruple murder in Maharashtra received no national attention for 35 days. His answer was precise: the victims were Dalit. The perpetrators were from a politically influential caste in Maharashtra. Local police had initially filed minimal charges. The national press, which had covered the Delhi gang rape of December 2012 with wall-to-wall coverage within hours, had structural reasons to treat these deaths as less visible.</p>
+  <div class="evidence note">
+    <div class="evidence-label">Media and Visibility</div>
+    <h4>The two murders that India treated differently</h4>
+    <p>In December 2012, a young woman was gang-raped on a Delhi bus. The case — known as the Nirbhaya case — received immediate, sustained, nationwide coverage. It led to legislative change within months. It is now in the school curriculum.</p>
+    <p>Surekha and Priyanka Bhotmange were gang-raped and murdered six years earlier. They received 35 days of national silence, a court case that ended with commuted sentences, and no legislative response named after them.</p>
+    <p>The difference between these two cases is not the severity of the crime. It is the caste and class of the victim.</p>
+    <p>This is not an attack on those who mourned Nirbhaya — their grief was real and their anger was just. It is an observation about which bodies Indian society is structurally conditioned to mourn publicly, and which it is conditioned to pass over.</p>
+  </div>
+  <div class="pullquote">
+    "Khairlanji is not a story about one family's tragedy. It is a story about a social system that punishes Dalits for owning land, for educating their children, for supporting victims against their oppressors — and then makes the punishment invisible to the rest of the country."
+    <cite>— Based on Anand Teltumbde, "The Persistence of Caste" (2010)</cite>
+  </div>
+</div>
+</section>
 <!-- SECTION 5: DALIT -->
 <section id="dalit">
 <div class="container">
@@ -1511,7 +1732,7 @@ em { color: var(--saffron); font-style: italic; }
 
   <p>Buddhism did something that had never been done in India before at scale: it <strong>established institutions of knowledge that were not controlled by Brahmins</strong>. The Buddhist monasteries were schools. The Pali language — in which the Buddha's teachings were recorded — was <em>not Sanskrit</em>. It was the language of ordinary people. Anyone could learn it. Anyone could read the texts. Anyone could become a monk or a nun and enter the educated class.</p>
 
-  <p>This is why Nalanda — the great Buddhist university — housed an estimated millions of manuscripts (ancient sources claim up to 9 million; conservative modern estimates are lower but confirm it as the largest library of the ancient world) and 10,000 students at its peak. It was the largest institution of learning in the ancient world. And it was not restricted by birth. <span class="tooltip-word" data-tip="Source: Sukumar Dutt, Buddhist Monks and Monasteries of India (1962); also cited in S. C. Vidyabhushan's history of Indian logic.">[source note]</span></p>
+  <p>This is why Nalanda — the great Buddhist university — housed an estimated millions of manuscripts — ancient sources cite figures up to 9 million; modern historians are more conservative but confirm it as the largest library of the ancient world — and 10,000 students at its peak. It was the largest institution of learning in the ancient world. And it was not restricted by birth. <span class="tooltip-word" data-tip="Source: Sukumar Dutt, Buddhist Monks and Monasteries of India (1962).">[source note]</span></p>
 
   <p><strong>The existence of Nalanda was itself a political act against the Brahmanical monopoly on knowledge.</strong></p>
   <figure class="doc-image">
@@ -1551,7 +1772,7 @@ em { color: var(--saffron); font-style: italic; }
     <div class="tl-item">
       <div class="tl-date">~600–1000 CE</div>
       <h4>Adi Shankaracharya's philosophical counter-attack</h4>
-      <p>Shankaracharya (c. 700–750 CE or 788–820 CE — dates are debated by scholars) <span class="tooltip-word" data-tip="The dates of Shankaracharya are disputed in scholarship. The most widely cited dates are 788–820 CE, but several historians place him in the early 700s CE.">[date note]</span> was a brilliant philosopher who traveled across India debating and defeating Buddhist scholars in public forums. Where Buddhism had provided philosophical frameworks that threatened Brahmanical authority, he built a counter-philosophy (Advaita Vedanta) that was intellectually formidable. With royal Brahmin patronage behind him and Buddhist institutions losing state support, this was devastating.</p>
+      <p>Shankaracharya (c. 788–820 CE — dates are debated; some scholars place him in the early 700s) <span class="tooltip-word" data-tip="The dates of Shankaracharya are disputed in scholarship. The most widely cited dates are 788–820 CE, but several historians place him in the early 700s CE.">[date note]</span> was a brilliant philosopher who traveled across India debating and defeating Buddhist scholars in public forums. Where Buddhism had provided philosophical frameworks that threatened Brahmanical authority, he built a counter-philosophy (Advaita Vedanta) that was intellectually formidable. With royal Brahmin patronage behind him and Buddhist institutions losing state support, this was devastating.</p>
     </div>
     <div class="tl-item">
       <div class="tl-date">1193 CE</div>
@@ -1639,6 +1860,14 @@ em { color: var(--saffron); font-style: italic; }
       <figure class="doc-image"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Dr._Bhimrao_Ambedkar.jpg" alt="Dr. B.R. Ambedkar" loading="lazy" /><figcaption>Dr. B.R. Ambedkar (1891–1956) — Chairman of the Constitution Drafting Committee, architect of Article 17 (abolition of untouchability), and leader of the largest peaceful mass religious conversion in modern history.</figcaption></figure>
       <p>He converted personal humiliation into constitutional revolution. Ambedkar organized labor, led satyagrahas for water and temple entry, burned Manusmriti as political critique, and gave India the legal grammar of equality.</p>
       <p class="person-quote">"Educate, agitate, organize."</p>
+    </div>
+    <div class="person-card">
+      <div class="person-name">Tarabai Shinde</div>
+      <span class="person-tag">1850–1910 CE (approximate — birth year uncertain) · Kunbi caste · Buldhana, Maharashtra</span>
+      <p>India's first feminist polemicist — whose most important work vanished for 80 years.</p>
+      <p>A woman from Buldhana district, Maharashtra, connected to Jyotirao Phule's Satyashodak Samaj movement. In 1882 she wrote "Stri Purush Tulana" — A Comparison Between Women and Men — the first feminist polemical text written by an Indian woman in any Indian language. It asked, with precise fury, why every standard of purity and punishment applied only to women and never to men. The text was suppressed, forgotten, and rediscovered in the 1970s — 80 years after it was written. Her recovery is itself part of the history.</p>
+      <p class="person-quote">"Why are your gods exempt from the very laws you apply to women? Let them stand under the same judgment — and see who remains standing."</p>
+      <div class="source-links"><a class="source-link" href="https://archive.org/search?query=stri+purush+tulana+tarabai" target="_blank" rel="noopener">📖 Open Source: Stri Purush Tulana</a></div>
     </div>
     <div class="person-card">
       <div class="person-name">Savitribai & Fatima Sheikh</div>
@@ -1798,6 +2027,31 @@ em { color: var(--saffron); font-style: italic; }
       </tr>
     </tbody>
   </table>
+</div>
+</section>
+
+<section id="research-maps">
+<div class="container">
+  <span class="section-number">Chapter 12</span>
+  <h2>Go Deeper — Research Maps for Every Topic<span class="sub">Use these prompts with the free Neuron app to explore any topic as an interactive knowledge graph</span></h2>
+  <p>Every chapter in this document is a doorway. This section gives you the keys to walk through them.</p>
+  <p>The Neuron Knowledge Graph app (free, no login required) lets you turn any topic into an interactive visual map of connected ideas — with a learning path, key concepts, and cross-domain connections. Here is how to use it with the topics from this document:</p>
+  <p>① Copy any topic string below<br>② Open the Neuron app → paste the topic → choose your depth level<br>③ Click 'Generate Knowledge Prompt' → copy the generated prompt<br>④ Paste into Claude, GPT-4, or Gemini → get the JSON output<br>⑤ Paste the JSON back into the Neuron app → explore your knowledge graph</p>
+  <a href="https://hhrishikeshh.github.io/NeuralLearning/neuron-app.html" target="_blank" rel="noopener" class="neural-app-btn">⬡ Open the Neuron Knowledge Graph App</a>
+
+  <div class="research-map-card"><div class="chapter-ref">Chapter 01 — Before the Vedas</div><h4>The Indus Valley Civilization and What Came Before</h4><div class="topic-string-box"><span class="topic-text">Indus Valley Civilization social structure archaeology religion Harappa Mohenjo-daro pre-Vedic India</span><button class="copy-btn" onclick="copyTopic(this, 'Indus Valley Civilization social structure archaeology religion Harappa Mohenjo-daro pre-Vedic India')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">Maps the genetic, archaeological, and linguistic evidence for the Aryan migration debate, the IVC religion, and how modern scholarship positions this against Hindu nationalist claims.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 01 — Aryan Migration</div><h4>The Aryan Migration Debate — Science vs. Politics</h4><div class="topic-string-box"><span class="topic-text">Aryan migration theory genetic evidence steppe ancestry ancient DNA caste origin controversy India</span><button class="copy-btn" onclick="copyTopic(this, 'Aryan migration theory genetic evidence steppe ancestry ancient DNA caste origin controversy India')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">Shows how population genetics, ancient DNA studies (2018–2022), and linguistic evidence intersect — and why this is politically contested in India today.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 02 — How the System Was Built</div><h4>The Architecture of the Caste System</h4><div class="topic-string-box"><span class="topic-text">caste system construction Brahmanical ideology Purusha Sukta Manusmriti varna jati social control karma doctrine</span><button class="copy-btn" onclick="copyTopic(this, 'caste system construction Brahmanical ideology Purusha Sukta Manusmriti varna jati social control karma doctrine')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Diagrams the four interlocking mechanisms (divine story, knowledge monopoly, karma trap, ritual gatekeeping) and their historical development.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 03 — Manusmriti</div><h4>The Manusmriti and Its Historical Application</h4><div class="topic-string-box"><span class="topic-text">Manusmriti laws caste punishment women Shudra Dalit British colonial law Warren Hastings Dharmashastra</span><button class="copy-btn" onclick="copyTopic(this, 'Manusmriti laws caste punishment women Shudra Dalit British colonial law Warren Hastings Dharmashastra')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Traces the Manusmriti from composition (~200 BCE–200 CE) through Brahmin commentary chains to British colonial codification — and into post-independence India.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 04 — Women and Brahmanical Patriarchy</div><h4>Women in the Brahmanical System — Law, Text, and Practice</h4><div class="topic-string-box"><span class="topic-text">women Brahmanical patriarchy Manusmriti Sita Draupadi Devadasi Stri Purush Tulana Tarabai Shinde caste gender intersection</span><button class="copy-btn" onclick="copyTopic(this, 'women Brahmanical patriarchy Manusmriti Sita Draupadi Devadasi Stri Purush Tulana Tarabai Shinde caste gender intersection')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Maps the intersection of caste and gender oppression — from textual sources to actual practices like the Devadasi system, widow immolation, and the women who resisted.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 04B — Kilvenmani</div><h4>Kilvenmani Massacre — Caste, Class and Agricultural Labour in India</h4><div class="topic-string-box"><span class="topic-text">Kilvenmani massacre 1969 Dalit agricultural workers Thanjavur Tamil Nadu agrarian caste violence impunity India</span><button class="copy-btn" onclick="copyTopic(this, 'Kilvenmani massacre 1969 Dalit agricultural workers Thanjavur Tamil Nadu agrarian caste violence impunity India')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">Connects the 1969 massacre to the larger history of Dalit agricultural workers in Tamil Nadu, the Communist peasant movements, and the pattern of judicial impunity in caste atrocity cases.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 04C — Khairlanji</div><h4>Khairlanji and the Invisibility of Dalit Women's Bodies</h4><div class="topic-string-box"><span class="topic-text">Khairlanji massacre 2006 Dalit women caste violence Maharashtra media silence India atrocity law SC ST</span><button class="copy-btn" onclick="copyTopic(this, 'Khairlanji massacre 2006 Dalit women caste violence Maharashtra media silence India atrocity law SC ST')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Maps the legal, media, and political structures that determine which rape and murder cases receive national attention — and which are made invisible.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 05 — Untouchability</div><h4>The Origins and Mechanisms of Untouchability</h4><div class="topic-string-box"><span class="topic-text">untouchability origins Dalit Ambedkar Buddhism Brahmanical revival Manusmriti pollution purity manual scavenging India</span><button class="copy-btn" onclick="copyTopic(this, 'untouchability origins Dalit Ambedkar Buddhism Brahmanical revival Manusmriti pollution purity manual scavenging India')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">Traces Ambedkar's 'broken men' hypothesis, the three independent historical witnesses (Buddhist Canon, Xuanzang, Al-Biruni), and the connection between untouchability and suppressed Buddhism.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 07 — Buddhism</div><h4>Buddhism as Anti-Caste Revolution</h4><div class="topic-string-box"><span class="topic-text">Buddhism anti-caste revolution Pali Canon sangha Ashoka social equality Nalanda knowledge institution India</span><button class="copy-btn" onclick="copyTopic(this, 'Buddhism anti-caste revolution Pali Canon sangha Ashoka social equality Nalanda knowledge institution India')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Maps the Buddha's direct anti-caste teachings, the political geography of the Gangetic plain (~500 BCE), Ashoka's transformation of Buddhism into state policy, and the Nalanda university network.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 08 — How Buddhism Was Erased</div><h4>The Brahmanical Counter-Revolution and the End of Buddhist India</h4><div class="topic-string-box"><span class="topic-text">Buddhism erasure India Shankaracharya Brahmanical revival Bhakti movement Nalanda destruction Vishnu avatar Buddha counter-revolution</span><button class="copy-btn" onclick="copyTopic(this, 'Buddhism erasure India Shankaracharya Brahmanical revival Bhakti movement Nalanda destruction Vishnu avatar Buddha counter-revolution')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">The four-stage process by which Brahmanical ideology absorbed, discredited, and ultimately erased Buddhism from India — including the philosophical, devotional, and physical destruction strategies.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 09 — The Fighters</div><h4>The Anti-Caste Resistance Movement — From Buddha to Ambedkar</h4><div class="topic-string-box"><span class="topic-text">anti-caste resistance movement India Phule Periyar Ambedkar Kabir Tukaram Savitribai Dalit Bahujan history</span><button class="copy-btn" onclick="copyTopic(this, 'anti-caste resistance movement India Phule Periyar Ambedkar Kabir Tukaram Savitribai Dalit Bahujan history')">Copy</button></div><span class="depth-badge depth-explorer">Explorer</span><p class="what-youll-find">The full 2,500-year lineage of anti-caste resistance — as a connected intellectual tradition, not isolated individuals.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Chapter 10 — Ambedkar</div><h4>B.R. Ambedkar — Life, Thought, and the Indian Constitution</h4><div class="topic-string-box"><span class="topic-text">Ambedkar life thought Indian Constitution Article 17 untouchability Buddhism conversion Annihilation of Caste Dalit movement</span><button class="copy-btn" onclick="copyTopic(this, 'Ambedkar life thought Indian Constitution Article 17 untouchability Buddhism conversion Annihilation of Caste Dalit movement')">Copy</button></div><span class="depth-badge depth-practitioner">Practitioner</span><p class="what-youll-find">Maps Ambedkar's intellectual development across his major works — from 'Annihilation of Caste' (1936) to 'The Buddha and His Dhamma' (1956) — and his role as Constitution drafter.</p></div>
+  <div class="research-map-card"><div class="chapter-ref">Cross-Chapter — Systems View</div><h4>Caste as a System: Power, Knowledge, and Resistance</h4><div class="topic-string-box"><span class="topic-text">caste system India power knowledge Brahminism Buddhism resistance Ambedkar Phule Periyar constitutional rights Dalit movement today</span><button class="copy-btn" onclick="copyTopic(this, 'caste system India power knowledge Brahminism Buddhism resistance Ambedkar Phule Periyar constitutional rights Dalit movement today')">Copy</button></div><span class="depth-badge depth-researcher">Researcher</span><p class="what-youll-find">The master map — connects all chapters as one integrated system of power, counter-power, and ongoing struggle. Best used after reading the full document.</p></div>
 </div>
 </section>
 
@@ -2031,7 +2285,49 @@ chapterSections.forEach(sec => {
 
   share.append(shareBtn, help, wa);
   wrap.appendChild(share);
+
+  if (!wrap.querySelector('.chapter-explore-bar') && sec.id !== 'research-maps') {
+    const explore = document.createElement('div');
+    explore.className = 'chapter-explore-bar';
+    explore.innerHTML = '<span class="explore-label">⬡ Research map available</span><a href="#research-maps" class="explore-link">Go to Research Maps →</a>';
+    wrap.appendChild(explore);
+  }
 });
+
+function copyTopic(btn, text) {
+  const fallbackCopy = (value) => {
+    const area = document.createElement('textarea');
+    area.value = value;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.left = '-9999px';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    try { document.execCommand('copy'); } catch (_) {}
+    document.body.removeChild(area);
+  };
+  const showCopied = () => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'rgba(16,185,129,0.3)';
+    btn.style.color = '#34d399';
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 2000);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showCopied).catch(() => {
+      fallbackCopy(text);
+      showCopied();
+    });
+  } else {
+    fallbackCopy(text);
+    showCopied();
+  }
+}
 
 // Utility nav buttons
 const searchBtn = document.getElementById('searchBtn');
